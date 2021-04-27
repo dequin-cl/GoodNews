@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LV3-pC-qDO">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="fkb-Lh-hb2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LV3-pC-qDO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bBe-n8-le1">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AcM-mj-jyp" kind="relationship" relationship="rootViewController" id="zGn-Xe-UEW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B3K-I4-6lh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="734.78260869565224" y="112.5"/>
+        </scene>
+        <!--Good News-->
+        <scene sceneID="xvV-te-fxh">
+            <objects>
+                <viewController storyboardIdentifier="NewsListViewController" id="AcM-mj-jyp" customClass="NewsListViewController" customModule="GoodNewsRxMVVM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BHN-P4-MoO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E5k-Kc-Y9r">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AQB-Io-oLn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AQB-Io-oLn" firstAttribute="trailing" secondItem="E5k-Kc-Y9r" secondAttribute="trailing" id="Ff5-0R-DnI"/>
+                            <constraint firstItem="AQB-Io-oLn" firstAttribute="bottom" secondItem="E5k-Kc-Y9r" secondAttribute="bottom" id="hXx-XI-NJT"/>
+                            <constraint firstItem="E5k-Kc-Y9r" firstAttribute="leading" secondItem="AQB-Io-oLn" secondAttribute="leading" id="pPt-Ho-yxj"/>
+                            <constraint firstItem="E5k-Kc-Y9r" firstAttribute="top" secondItem="AQB-Io-oLn" secondAttribute="top" id="tWy-sY-TaV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Good News" id="ubW-GN-TNR"/>
+                    <connections>
+                        <outlet property="tableView" destination="E5k-Kc-Y9r" id="F8J-Nj-IuJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O37-Bx-fEF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1588" y="113"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
