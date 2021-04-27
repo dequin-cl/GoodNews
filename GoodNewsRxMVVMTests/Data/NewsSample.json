@@ -1,0 +1,110 @@
+{
+    "status": "ok",
+    "totalResults": 38,
+    "articles": [
+        {
+            "source": {
+                "id": null,
+                "name": "Hollywood Reporter"
+            },
+            "author": "THR staff",
+            "title": "Late Night Hosts Celebrate Daniel Kaluuya's Awkward Oscars Sex Joke - Hollywood Reporter",
+            "description": "Trevor Noah, Stephen Colbert and Jimmy Fallon on their shows Monday night homed in on the 'Judas and the Black Messiah' Oscar winner's quip about his parents while his mom was in the audience.",
+            "url": "https://www.hollywoodreporter.com/news/late-night-hosts-daniel-kaluuyas-oscars-sex-joke",
+            "urlToImage": "https://static.hollywoodreporter.com/wp-content/uploads/2021/03/March17_TrevorStill-H-2021-1616772923-1024x577.jpg",
+            "publishedAt": "2021-04-27T04:09:46Z",
+            "content": "Trevor Noah, Stephen Colbert and Jimmy Fallon had some fun with Daniel Kaluuya's Oscar acceptance speech sex joke on their shows on Monday night.\r\nAccepting the Oscar for best supporting actor for hi… [+2435 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Bad Left Hook"
+            },
+            "author": "Scott Christ",
+            "title": "Triller files lawsuit against sites that pirated Jake Paul pay-per-view - Bad Left Hook",
+            "description": "The lawsuit is seeking $100 million in damages.",
+            "url": "https://www.badlefthook.com/2021/4/26/22404705/triller-files-lawsuit-against-sites-pirated-april-17-jake-paul-pay-per-view-boxing-news-2021",
+            "urlToImage": "https://cdn.vox-cdn.com/thumbor/oEMHzXqtg_Oq0AbPVv354B4krCI=/0x0:4339x2272/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/22471994/1313062939.jpg",
+            "publishedAt": "2021-04-26T23:30:00Z",
+            "content": "Triller have filed a lawsuit in U.S. District Court of Central California seeking to fight back against massive piracy for their April 17 Fight Club pay-per-view event, seeking $100 million in damage… [+1472 chars]"
+        },
+        {
+            "source": {
+                "id": "fox-news",
+                "name": "Fox News"
+            },
+            "author": "Jon Street",
+            "title": "John Kerry faces calls to resign over allegations of leaking Israeli intel to Iran - Fox News",
+            "description": "The Biden administration is refusing to weigh in on the Iranian foreign minister claiming in a leaked recording that former Secretary of State and current Special",
+            "url": "https://www.foxnews.com/politics/john-kerry-faces-calls-to-resign-over-allegations-of-leaking-israeli-intel-to-iran",
+            "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2019/05/Kerry-Zarif-Thumb.jpg",
+            "publishedAt": "2021-04-26T23:25:25Z",
+            "content": "The Biden administration is refusing to weigh in on the Iranian foreign minister claiming in a leaked recording that former Secretary of State and current Special\r\nPresidential Envoy for Climate John… [+1262 chars]"
+        },
+        {
+            "source": {
+                "id": "cbs-news",
+                "name": "CBS News"
+            },
+            "author": "Sara Cook, Alexander Tin",
+            "title": "CDC to update outdoor mask guidelines for vaccinated Americans - CBS News",
+            "description": "Growing research suggests coronavirus transmission risks substantially decrease outdoors.",
+            "url": "https://www.cbsnews.com/news/cdc-guidelines-face-mask-outdoors-vaccinated/",
+            "urlToImage": "https://cbsnews2.cbsistatic.com/hub/i/r/2021/04/26/52b1ef0f-664d-4ba8-b8bc-6c0239aae31d/thumbnail/1200x630/6be94247e525b48960a6d1361a2aa60b/gettyimages-1308338764.jpg",
+            "publishedAt": "2021-04-26T23:00:09Z",
+            "content": "The Centers for Disease Control and Prevention (CDC) is expected to announce updated guidelines for fully vaccinated Americans as early as Tuesday, according to several administration officials. \r\nA … [+2609 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "SpaceNews"
+            },
+            "author": "Sandra Erwin",
+            "title": "Delta 4 Heavy sends spy satellite to orbit in ULA's first launch of 2021 - SpaceNews",
+            "description": "United Launch Alliance launched NROL-82 on a Delta 4 Heavy rocket April 26 from Vandenberg Air Force Base, California.",
+            "url": "https://spacenews.com/delta-4-heavy-sends-spy-satellite-to-orbit-in-ulas-first-launch-of-2021/",
+            "urlToImage": "https://spacenews.com/wp-content/uploads/2021/04/Screen-Shot-2021-04-26-at-4.47.44-PM-1024x639.png",
+            "publishedAt": "2021-04-26T21:11:43Z",
+            "content": "NROL-82 is the first of four remaining Delta 4 Heavy missions that the Space Force contracted with ULA\r\nWASHINGTON United Launch Alliance launched a classified National Reconnaissance Office spy sate… [+1807 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Gold Derby"
+            },
+            "author": "Daniel Montgomery",
+            "title": "With her surprise Oscar win, Frances McDormand leapfrogs Meryl Streep to join Katharine Hepburn’s exclusive club - Gold Derby",
+            "description": "Frances McDormand‘s Best Actress Oscar win for “Nomadland” was so surprising (she ranked fourth in our racetrack odds), that it almost escapes notice just how historic it was. McDormand has now won three Best Actress Oscars, a feat only ever achieved by one o…",
+            "url": "https://www.goldderby.com/article/2021/frances-mcdormand-oscars-best-actress/",
+            "urlToImage": "https://www.goldderby.com/wp-content/uploads/2021/04/frances-mcdormand-oscars-2021-katharine-hepburn.jpg",
+            "publishedAt": "2021-04-26T21:00:48Z",
+            "content": "Frances McDormand‘s Best Actress Oscar win for “Nomadland” was so surprising (she ranked fourth in our racetrack odds), that it almost escapes notice just how historic it was. McDormand has now won t… [+3402 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "CNET"
+            },
+            "author": "Eric Mack",
+            "title": "NASA's Ingenuity helicopter on Mars sets speed record in third flight - CNET",
+            "description": "The Perseverance rover's sidekick is starting to show off.",
+            "url": "https://www.cnet.com/news/nasa-ingenuity-helicopter-on-mars-sets-speed-record-in-third-flight/",
+            "urlToImage": "https://www.cnet.com/a/img/j3k2khaeHdZUGhp-Zy0Glk2b49o=/1200x630/2021/04/25/8b12b56d-8160-4e18-a143-c77ec24a649d/25852-2-pia24623-web.jpg",
+            "publishedAt": "2021-04-26T19:59:00Z",
+            "content": "A black and white image taken from Ingenuity's downward-looking navigation camera during its third flight on April 25, 2021. \r\nNASA/JPL-Caltech\r\nThe first craft to fly on another world hit a jogging … [+1975 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Yahoo Entertainment"
+            },
+            "author": "Zachary Basu",
+            "title": "“It reminds me of Soviet trials\": Russian court suspends activities of Navalny group - Yahoo News",
+            "description": "A Russian court on Monday approved a request by prosecutors to suspend all activities at the regional headquarters of Alexei Navalny's political organization...",
+            "url": "https://news.yahoo.com/reminds-soviet-trials-russian-court-104322470.html",
+            "urlToImage": "https://s.yimg.com/uu/api/res/1.2/EX74f4ke6oGpc9QwCycfUQ--~B/aD03MjA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/axios_articles_623/e9e04142fb16ce602c0282779a219e7a",
+            "publishedAt": "2021-04-26T10:43:22Z",
+            "content": "A Russian court on Monday approved a request by prosecutors to suspend all activities at the regional headquarters of Alexei Navalny's political organization, pending a ruling on whether to label his… [+1813 chars]"
+        }
+    ]
+}

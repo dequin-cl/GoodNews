@@ -1,5 +1,6 @@
 PODS:
   - Differentiator (5.0.0)
+  - Hippolyte (1.3.1)
   - RxBlocking (6.1.0):
     - RxSwift (= 6.1.0)
   - RxCocoa (6.1.0):
@@ -16,6 +17,7 @@ PODS:
     - RxSwift (= 6.1.0)
 
 DEPENDENCIES:
+  - Hippolyte
   - RxBlocking (= 6.1.0)
   - RxCocoa (= 6.1.0)
   - RxDataSources (= 5.0.0)
@@ -25,6 +27,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Differentiator
+    - Hippolyte
     - RxBlocking
     - RxCocoa
     - RxDataSources
@@ -34,6 +37,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
+  Hippolyte: 6996a394e7861f1486ca63352b3f8896e167b958
   RxBlocking: 602095fba0bce7b16b56ccec89edf780c248b7d9
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
@@ -41,6 +45,6 @@ SPEC CHECKSUMS:
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
   RxTest: 9d26616eaff4a7e75f4ecae9b2c24840f2e8218d
 
-PODFILE CHECKSUM: 896f35ce8405781c9c62ed0c1975175e36fabec4
+PODFILE CHECKSUM: dfcf1ab23993b3bc1d24d2ed1a5e2119b9079580
 
 COCOAPODS: 1.10.1

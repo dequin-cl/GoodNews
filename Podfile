@@ -16,12 +16,13 @@ target 'GoodNewsRxMVVM' do
   target 'GoodNewsRxMVVMTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Hippolyte'
+    pod 'RxBlocking', '6.1.0'
+    pod 'RxTest', '6.1.0'
   end
 
   target 'GoodNewsRxMVVMUITests' do
     # Pods for testing
-    pod 'RxBlocking', '6.1.0'
-    pod 'RxTest', '6.1.0'
   end
 
 end
