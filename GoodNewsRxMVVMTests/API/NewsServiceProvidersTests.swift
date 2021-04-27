@@ -31,10 +31,7 @@ class NewsServiceProvidersTests: XCTestCase {
         
         var response = StubResponse()
         let path = Bundle(for: type(of: self)).path(forResource: "NewsSample", ofType: "json")!
-        let data = NSData(contentsOfFile: path)!
-        let body = data
-        
-        response.body = body as Data
+        response.body = NSData(contentsOfFile: path)! as Data
         stub.response = response
         Hippolyte.shared.add(stubbedRequest: stub)
         Hippolyte.shared.start()
