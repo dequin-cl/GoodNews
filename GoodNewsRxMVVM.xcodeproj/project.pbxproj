@@ -19,6 +19,7 @@
 		2C37165C263759010016F103 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37165B263759010016F103 /* UITableView+.swift */; };
 		2C371663263768CA0016F103 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5E41F2635991E00709010 /* Service.swift */; };
 		2C37167A26376B650016F103 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5E4242635995700709010 /* Configuration.swift */; };
+		2C3A8FAE263848680059B0A4 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A8FAD263848680059B0A4 /* AppDelegateTests.swift */; };
 		2C93089D2637B1300024B1ED /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93089C2637B1300024B1ED /* ApiKey.swift */; };
 		2C976AAB2635DBC1006F5B13 /* ArticleListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C976AAA2635DBC1006F5B13 /* ArticleListCellViewModel.swift */; };
 		2C976AB12635DD40006F5B13 /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C976AB02635DD40006F5B13 /* BindableType.swift */; };
@@ -71,6 +72,7 @@
 		2C371632263751A10016F103 /* AlertPresentableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentableViewModel.swift; sourceTree = "<group>"; };
 		2C3716552637564A0016F103 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		2C37165B263759010016F103 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
+		2C3A8FAD263848680059B0A4 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		2C93089C2637B1300024B1ED /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		2C976AAA2635DBC1006F5B13 /* ArticleListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListCellViewModel.swift; sourceTree = "<group>"; };
 		2C976AB02635DD40006F5B13 /* BindableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
@@ -235,7 +237,6 @@
 				2C976AE126361CC9006F5B13 /* NewsList */,
 				2C976AAF2635DD37006F5B13 /* Utilities */,
 				2CA5E41E2635991800709010 /* Extensions */,
-				2CA5E4012635977400709010 /* Controllers */,
 				2CA5E3CE2635971000709010 /* AppDelegate.swift */,
 				2CA5E3D02635971000709010 /* SceneDelegate.swift */,
 				2CA5E3D42635971000709010 /* Main.storyboard */,
@@ -251,6 +252,7 @@
 			children = (
 				2CA5E3E52635971300709010 /* GoodNewsRxMVVMTests.swift */,
 				2CA5E3E72635971300709010 /* Info.plist */,
+				2C3A8FAD263848680059B0A4 /* AppDelegateTests.swift */,
 			);
 			path = GoodNewsRxMVVMTests;
 			sourceTree = "<group>";
@@ -262,13 +264,6 @@
 				2CA5E3F22635971300709010 /* Info.plist */,
 			);
 			path = GoodNewsRxMVVMUITests;
-			sourceTree = "<group>";
-		};
-		2CA5E4012635977400709010 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		2CA5E418263598FC00709010 /* Models */ = {
@@ -600,6 +595,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C3A8FAE263848680059B0A4 /* AppDelegateTests.swift in Sources */,
 				2CA5E3E62635971300709010 /* GoodNewsRxMVVMTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

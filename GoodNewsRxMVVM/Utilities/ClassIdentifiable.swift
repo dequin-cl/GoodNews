@@ -1,6 +1,6 @@
 import Foundation
 
-protocol ClassIdentifiable: class {
+protocol ClassIdentifiable: AnyObject {
     static var reuseId: String { get }
 }
 
@@ -9,3 +9,4 @@ extension ClassIdentifiable {
         return String(describing: self)
     }
 }
+    
