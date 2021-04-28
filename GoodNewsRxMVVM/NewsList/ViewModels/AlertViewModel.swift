@@ -1,7 +1,7 @@
 import RxSwift
 
-class ViewModel: AlertPresentableViewModel {
-    var alertModel: PublishSubject<AlertModel?> = PublishSubject<AlertModel?>()
+class AlertViewModel: AlertPresentableViewModel {
+    var alertModel: PublishSubject<AlertModel> = PublishSubject<AlertModel>()
     
     func showOkAlert(message: String) {
         let alert = AlertModel(

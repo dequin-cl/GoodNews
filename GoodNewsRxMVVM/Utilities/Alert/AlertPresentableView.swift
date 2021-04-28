@@ -12,10 +12,6 @@ extension AlertPresentableView where Self: DisposableViewController {
         alertPresentableViewModel.alertModel
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] model in
-                guard let model = model else {
-                    return
-                }
-                
                 let alert = AlertBuilder.buildAlertController(for: model)
                 self?.present(alert, animated: true, completion: nil)
             }).disposed(by: disposeBag)

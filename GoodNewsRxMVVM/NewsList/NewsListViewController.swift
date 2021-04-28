@@ -8,7 +8,7 @@ final class NewsListViewController: DisposableViewController, AlertPresentableVi
     private var dataSource: RxTableViewSectionedAnimatedDataSource<ArticleListSectionModel>!
     
     private(set) var viewModel: ArticleListViewModel?
-    private(set) var alertPresentableViewModel = ViewModel()
+    private(set) var alertPresentableViewModel = AlertViewModel()
     
     @IBOutlet var tableView: UITableView!
     
