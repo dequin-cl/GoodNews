@@ -5,7 +5,7 @@ import RxCocoa
 class ArticleListViewModel: DisposableViewModel {
     
     var dataSource = BehaviorRelay<[Article]>(value: [])
-    var newsServicesProvider: NewsService = NewsServiceProviders()
+    var newsServicesProvider: NewsService
     private var lastPage = 1
     private var isLoading = false
     
@@ -13,7 +13,13 @@ class ArticleListViewModel: DisposableViewModel {
 
     var fetchNextArticles = PublishRelay<Void>()
     
+    @available(*, unavailable)
     override init() {
+      fatalError()
+    }
+    
+    init(newsServicesProvider: NewsService) {
+        self.newsServicesProvider = newsServicesProvider
         super.init()
 
         fetchNextArticles

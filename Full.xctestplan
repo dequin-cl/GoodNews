@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "FF664C5A-169E-4D65-8D3E-1BAD20801CA5",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:GoodNewsRxMVVM.xcodeproj",
+        "identifier" : "2CA5E3E02635971300709010",
+        "name" : "GoodNewsRxMVVMTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:GoodNewsRxMVVM.xcodeproj",
+        "identifier" : "2CA5E3EB2635971300709010",
+        "name" : "GoodNewsRxMVVMUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

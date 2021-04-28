@@ -16,7 +16,7 @@ struct MainCoordinator: Coordinator {
     }
     
     func start() {
-        let viewModel = ArticleListViewModel()
+        let viewModel = ArticleListViewModel(newsServicesProvider: NewsServiceProviders())
         let viewController: NewsListViewController = UIStoryboard().viewController()
         viewController.bind(to: viewModel)
         navigationController.pushViewController(viewController, animated: false)

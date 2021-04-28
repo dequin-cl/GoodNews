@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "3894CD77-C069-4C68-93D6-A3F39774CA97",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:GoodNewsRxMVVM.xcodeproj",
+          "identifier" : "2CA5E3CA2635971000709010",
+          "name" : "GoodNewsRxMVVM"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:GoodNewsRxMVVM.xcodeproj",
+      "identifier" : "2CA5E3CA2635971000709010",
+      "name" : "GoodNewsRxMVVM"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:GoodNewsRxMVVM.xcodeproj",
+        "identifier" : "2CA5E3E02635971300709010",
+        "name" : "GoodNewsRxMVVMTests"
+      }
+    }
+  ],
+  "version" : 1
+}

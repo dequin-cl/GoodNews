@@ -11,52 +11,45 @@ import RxCocoa
 @testable import GoodNewsRxMVVM
 
 class ArticleViewModelTests: XCTestCase {
-    let article1 = Article(title: "Test", description: "Description Test", publishedAt: Date.from(iso8601: "2021-04-27T17:35:15Z"))
-    let article2 = Article(title: "Test 2", description: "Description Test 2", publishedAt: Date.from(iso8601: "2021-04-26T17:35:15Z"))
-
-    let article3 = Article(title: "Test 3", description: "Description Test 3", publishedAt: Date.from(iso8601: "2021-04-25T17:35:15Z"))
-    let article4 = Article(title: "Test 4", description: "Description Test 4", publishedAt: Date.from(iso8601: "2021-04-24T17:35:15Z"))
-
-//    func test_ArticleListViewModel_Creation_Sets_Datasource() {
-//        let articleListVM = ArticleListViewModel(withArticle: [article1, article2])
-//
-//        XCTAssertEqual(articleListVM.dataSource.value.count, 2)
-//
-//        XCTAssertEqual(articleListVM.dataSource.value[0], article1)
-//    }
-    
+        
     func test_ArticleListViewModel_Creation_Sets_Datasource() {
-        let articleListVM = ArticleListViewModel(withArticle: [article1, article2])
+        
+        let sut = makeSUT()
+
         let disposeBag = DisposeBag()
         let expectation = self.expectation(description: "Set articles on the datasource")
         var result: [Article]?
         
-        articleListVM.dataSource.subscribe(onNext: {
+        sut.dataSource.subscribe(onNext: {
             result = $0
             expectation.fulfill()
         })
         .disposed(by: disposeBag)
         
         waitForExpectations(timeout: 1.0) { error in
-          guard error == nil else {
-            XCTFail(error!.localizedDescription)
-            return
-          }
-
-          // 5
-            XCTAssertEqual([self.article1, self.article2], result)
+            guard error == nil else {
+                XCTFail(error!.localizedDescription)
+                return
+            }
+            
+            // 5
+            XCTAssertEqual([], result)
         }
     }
     
     func test_ArticleListViewModel_Update_Sets_Datasource() {
-        let articleListVM = ArticleListViewModel(withArticle: [article1, article2])
+        let article1 = Article(title: "Test", description: "Description Test", publishedAt: Date.from(iso8601: "2021-04-27T17:35:15Z"))
+        let article2 = Article(title: "Test 2", description: "Description Test 2", publishedAt: Date.from(iso8601: "2021-04-26T17:35:15Z"))
+
+        let sut = makeSUT()
+
         let disposeBag = DisposeBag()
         let expectation = self.expectation(description: "Set articles on the datasource")
         var result: [Article]?
         
-        articleListVM.update(withArticle: [article3, article4])
-
-        articleListVM.dataSource.subscribe(onNext: {
+        sut.update(withArticle: [article1, article2])
+        
+        sut.dataSource.subscribe(onNext: {
             result = $0
             expectation.fulfill()
         })
@@ -64,14 +57,93 @@ class ArticleViewModelTests: XCTestCase {
         
         
         waitForExpectations(timeout: 1.0) { error in
-          guard error == nil else {
-            XCTFail(error!.localizedDescription)
-            return
-          }
-
-          // 5
-            XCTAssertEqual([self.article1, self.article2, self.article3, self.article4], result)
+            guard error == nil else {
+                XCTFail(error!.localizedDescription)
+                return
+            }
+            
+            // 5
+            XCTAssertEqual([article1, article2], result)
         }
+    }
+    
+    func test_fetchNextArticles_Calls_NewsServiceProvider() {
+        
+        let mock = NewsServiceProvidersMock()
+        let articleListVM = makeSUT(newsService: mock)
+        
+        articleListVM.fetchNextArticles.accept(())
+        
+        XCTAssertEqual(mock.page, 1)
+        XCTAssertNotNil(mock.callback)
+        
+    }
+    
+    func test_fetchNextArticles_CallWithError_Calls_OnFetchArticlesError() {
+        
+        let mock = NewsServiceProvidersErrorMock()
+        let sut = makeSUT(newsService: mock)
+
+        let expectation = self.expectation(description: "Error path on fetch")
+        
+        sut.onFetchArticlesError = { _ in
+            expectation.fulfill()
+        }
+        
+        sut.fetchNextArticles.accept(())
+        
+        wait(for: [expectation], timeout: 1.0)
+    }
+    
+    func test_fetchNextArticles_SuccessfullResponse_Bump_Page() {
+        let mock = NewsServiceProvidersSuccessfullMock()
+        let sut = makeSUT(newsService: mock)
+        
+        sut.fetchNextArticles.accept(())
+        sut.fetchNextArticles.accept(())
+        
+        XCTAssertEqual(mock.page, 2)
+    }
+    
+    //MARK:- Helpers
+    private func makeSUT(newsService: NewsService = NewsServiceProvidersMock()) -> ArticleListViewModel {
+        return ArticleListViewModel(newsServicesProvider: newsService)
+    }
+}
+
+class NewsServiceProvidersMock: NewsService {
+    
+    var page = -1
+    var callback: (([Article]?, Int, Error?) -> Void)?
+    func populateNews(page: Int, _ callback: @escaping (([Article]?, Int, Error?) -> Void)) {
+        self.page = page
+        self.callback = callback
+        callback([], 0, nil)
+    }
+}
+
+class NewsServiceProvidersErrorMock: NewsService {
+    
+    var page = -1
+    var callback: (([Article]?, Int, Error?) -> Void)?
+    func populateNews(page: Int, _ callback: @escaping (([Article]?, Int, Error?) -> Void)) {
+        self.page = page
+        self.callback = callback
+        callback(nil, 0, NSError(domain: "Test", code: 0, userInfo: nil))
+    }
+}
+
+class NewsServiceProvidersSuccessfullMock: NewsService {
+    
+    var page = -1
+    var callback: (([Article]?, Int, Error?) -> Void)?
+    func populateNews(page: Int, _ callback: @escaping (([Article]?, Int, Error?) -> Void)) {
+        self.page = page
+        self.callback = callback
+        
+        let article = Article(title: "Test", description: "Description Test", publishedAt: Date.from(iso8601: "2021-04-27T17:35:15Z"))
+        
+        callback([article], 0, nil)
     }
 }
 
