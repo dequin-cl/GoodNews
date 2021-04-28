@@ -1,5 +1,5 @@
 import RxSwift
 
 protocol AlertPresentableViewModel {
-    var alertModel: PublishSubject<AlertModel?> { get set }
+    var alertModel: PublishSubject<AlertModel?> { get }
 }
