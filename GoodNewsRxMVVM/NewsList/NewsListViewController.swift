@@ -3,12 +3,12 @@ import RxSwift
 import RxDataSources
 
 final class NewsListViewController: DisposableViewController, AlertPresentableView {    
-    var alertPresentableViewModel = ViewModel()
-    
     typealias ArticleListSectionModel = AnimatableSectionModel<String, Article>
     
     private var dataSource: RxTableViewSectionedAnimatedDataSource<ArticleListSectionModel>!
+    
     private(set) var viewModel: ArticleListViewModel?
+    private(set) var alertPresentableViewModel = ViewModel()
     
     @IBOutlet var tableView: UITableView!
     
@@ -19,32 +19,27 @@ final class NewsListViewController: DisposableViewController, AlertPresentableVi
         
         setupTableView()
         bindToAlerts()
+        setupInfinitScroll()
         
-        self.bind(to: ArticleListViewModel(withArticle: []))
-
-        viewModel?.onFetchArticlesError = { [weak self] message in
-            DispatchQueue.main.async {
-                self?.alertPresentableViewModel.showOkAlert(message: message)
-            }
-        }
-        
-        viewModel?.fetchNextArticles.accept(())
-        
+    }
+    
+    private let startLoadingOffset: CGFloat = 20.0
+    
+    fileprivate func setupInfinitScroll() {
         tableView.rx.contentOffset
-            .flatMap { offset in
-                NewsListViewController.isNearTheBottomEdge(offset, self.tableView)
+            .flatMap { [weak self] offset in
+                self?.isNearTheBottomEdge(offset, self?.tableView) ?? false
                     ? Observable.just(())
                     : Observable.empty()
             }.subscribe(onNext: { [weak self] in
                 self?.viewModel?.fetchNextArticles.accept(())
             })
             .disposed(by: disposeBag)
-        
     }
     
-    static let startLoadingOffset: CGFloat = 20.0
-    
-    static func isNearTheBottomEdge(_ contentOffset: CGPoint, _ tableView: UITableView) -> Bool {
+    private func isNearTheBottomEdge(_ contentOffset: CGPoint, _ tableView: UITableView?) -> Bool {
+        guard let tableView = tableView else { return false}
+        
         return contentOffset.y + tableView.frame.size.height + startLoadingOffset > tableView.contentSize.height
     }
     
@@ -72,6 +67,12 @@ final class NewsListViewController: DisposableViewController, AlertPresentableVi
 extension NewsListViewController: BindableType {
     func setViewModel(viewModel: ArticleListViewModel) {
         self.viewModel = viewModel
+        
+        self.viewModel?.onFetchArticlesError = { [weak self] message in
+            DispatchQueue.main.async {
+                self?.alertPresentableViewModel.showOkAlert(message: message)
+            }
+        }
     }
     
     func bindViewModel() {

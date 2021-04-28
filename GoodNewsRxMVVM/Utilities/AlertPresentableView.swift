@@ -4,7 +4,7 @@ import RxSwift
 protocol AlertPresentableView {
     associatedtype ModelType: AlertPresentableViewModel
     
-    var alertPresentableViewModel: ModelType { get set }
+    var alertPresentableViewModel: ModelType { get }
 }
 
 extension AlertPresentableView where Self: DisposableViewController {

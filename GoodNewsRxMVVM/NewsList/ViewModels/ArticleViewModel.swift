@@ -13,19 +13,14 @@ class ArticleListViewModel: DisposableViewModel {
 
     var fetchNextArticles = PublishRelay<Void>()
     
-    init(withArticle articles: [Article]) {
+    override init() {
         super.init()
-        
-        fetchNextArticles.subscribe(onNext: { [weak self] value in
-            self?.fetchArticles()
-        }).disposed(by: disposeBag)
-        
-        if articles.isEmpty {
-            dataSource.accept([])
-        } else {
-            print("Number of articles: \(articles.count)")
-            dataSource.accept(articles)
-        }
+
+        fetchNextArticles
+            .subscribe(onNext: { [weak self] value in
+                self?.fetchArticles()
+            })
+            .disposed(by: disposeBag)
     }
     
     func update(withArticle articles: [Article]) {
