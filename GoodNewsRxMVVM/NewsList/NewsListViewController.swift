@@ -12,11 +12,6 @@ final class NewsListViewController: DisposableViewController, AlertPresentableVi
     
     @IBOutlet var tableView: UITableView!
     
-    var newsServicesProvider: NewsService = NewsServiceProviders()
-    
-    private var lastPage = 1
-    private var isLoading = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,14 +19,25 @@ final class NewsListViewController: DisposableViewController, AlertPresentableVi
         
         setupTableView()
         bindToAlerts()
-        goGrabNews()
+        
+        self.bind(to: ArticleListViewModel(withArticle: []))
 
+        viewModel?.onFetchArticlesError = { [weak self] message in
+            DispatchQueue.main.async {
+                self?.alertPresentableViewModel.showOkAlert(message: message)
+            }
+        }
+        
+        viewModel?.fetchNextArticles.accept(())
+        
         tableView.rx.contentOffset
             .flatMap { offset in
                 NewsListViewController.isNearTheBottomEdge(offset, self.tableView)
                     ? Observable.just(())
                     : Observable.empty()
-            }.subscribe(onNext: { self.goGrabNews() })
+            }.subscribe(onNext: { [weak self] in
+                self?.viewModel?.fetchNextArticles.accept(())
+            })
             .disposed(by: disposeBag)
         
     }
@@ -40,39 +46,6 @@ final class NewsListViewController: DisposableViewController, AlertPresentableVi
     
     static func isNearTheBottomEdge(_ contentOffset: CGPoint, _ tableView: UITableView) -> Bool {
         return contentOffset.y + tableView.frame.size.height + startLoadingOffset > tableView.contentSize.height
-    }
-    
-    private func goGrabNews() {
-        guard !isLoading else { return }
-        isLoading = true
-        
-        newsServicesProvider.populateNews(page: lastPage){ [weak self] (articles, totalResults, error)  in
-            guard let articles = articles else {
-                DispatchQueue.main.async {
-                    self?.alertPresentableViewModel.showOkAlert(message: "Could not download News. Please try later")
-                }
-                return
-            }
-            
-            if !articles.isEmpty {
-                self?.lastPage += 1
-            }
-            
-            if self?.viewModel != nil {
-                self?.viewModel?.update(withArticle: articles)
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                    self?.isLoading = false
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self?.bind(to: ArticleListViewModel(withArticle: articles))
-                    self?.tableView.reloadData()
-                    self?.isLoading = false
-                }
-            }
-        }
-        
     }
     
     private func setupTableView() {
@@ -85,8 +58,6 @@ final class NewsListViewController: DisposableViewController, AlertPresentableVi
     }
     
     private func setupDataSource() {
-        tableView.dataSource = nil
-        
         dataSource = RxTableViewSectionedAnimatedDataSource<ArticleListSectionModel>(
             animationConfiguration: AnimationConfiguration(insertAnimation: .right,
                                                            reloadAnimation: .none,
